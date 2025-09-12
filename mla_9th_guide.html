@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLA 9th Edition Citation and Documentation Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        nav h2 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+
+        nav a {
+            color: #1e3a8a;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        nav a:hover, nav a:focus {
+            background: #e5e7eb;
+            text-decoration: underline;
+        }
+
+        main {
+            display: grid;
+            gap: 30px;
+        }
+
+        section {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid #3b82f6;
+        }
+
+        h2 {
+            color: #1e3a8a;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        h3 {
+            color: #374151;
+            font-size: 1.3rem;
+            margin: 20px 0 15px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .example {
+            background: #f3f4f6;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 15px 0;
+            border-left: 3px solid #10b981;
+        }
+
+        .example h4 {
+            color: #059669;
+            margin-bottom: 10px;
+        }
+
+        .citation-example {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            color: #374151;
+        }
+
+        .warning {
+            background: #fef2f2;
+            border-left: 3px solid #ef4444;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .warning h4 {
+            color: #dc2626;
+            margin-bottom: 5px;
+        }
+
+        .tip {
+            background: #f0f9ff;
+            border-left: 3px solid #0ea5e9;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .tip h4 {
+            color: #0284c7;
+            margin-bottom: 5px;
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background: #fbbf24;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+
+        .core-elements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .element-card {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .element-card h4 {
+            color: #475569;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                grid-template-columns: 1fr;
+            }
+
+            .core-elements {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #f3f4f6;
+            font-weight: bold;
+            color: #374151;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #3b82f6;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background-color 0.2s;
+        }
+
+        .back-to-top:hover, .back-to-top:focus {
+            background: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <h1>MLA 9th Edition Citation and Documentation Guide</h1>
+        <p class="subtitle">Complete guide to finding, citing, and integrating sources in academic writing</p>
+    </header>
+
+    <nav role="navigation" aria-label="Page contents">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#finding-sources">Finding Credible Sources</a></li>
+            <li><a href="#core-elements">MLA Core Elements</a></li>
+            <li><a href="#in-text-citations">In-Text Citations</a></li>
+            <li><a href="#works-cited">Works Cited Page</a></li>
+            <li><a href="#integrating-sources">Integrating Sources</a></li>
+            <li><a href="#quoting">Quoting Guidelines</a></li>
+            <li><a href="#paraphrasing">Paraphrasing and Summarizing</a></li>
+            <li><a href="#common-sources">Common Source Types</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content" role="main">
+        <section id="finding-sources">
+            <h2>Finding Credible Sources</h2>
+            
+            <h3>What Makes a Source Credible?</h3>
+            <p>Credible sources are reliable, accurate, and authoritative. When evaluating sources, consider the <strong>CRAAP Test</strong>:</p>
+            
+            <ul>
+                <li><strong>Currency:</strong> How recent is the information?</li>
+                <li><strong>Relevance:</strong> Does it relate to your topic?</li>
+                <li><strong>Authority:</strong> Who is the author and what are their credentials?</li>
+                <li><strong>Accuracy:</strong> Is the information supported by evidence?</li>
+                <li><strong>Purpose:</strong> Why was this source created?</li>
+            </ul>
+
+            <h3>Types of Credible Sources</h3>
+            <div class="core-elements">
+                <div class="element-card">
+                    <h4>Academic Sources</h4>
+                    <p>Peer-reviewed journal articles, scholarly books, conference proceedings</p>
+                </div>
+                <div class="element-card">
+                    <h4>Primary Sources</h4>
+                    <p>Original documents, interviews, surveys, historical records</p>
+                </div>
+                <div class="element-card">
+                    <h4>Government Publications</h4>
+                    <p>Reports, statistics, official documents from government agencies</p>
+                </div>
+                <div class="element-card">
+                    <h4>Reputable News Sources</h4>
+                    <p>Established newspapers, magazines, and news websites with editorial standards</p>
+                </div>
+            </div>
+
+            <h3>Where to Find Sources</h3>
+            <ul>
+                <li><strong>Academic databases:</strong> JSTOR, ProQuest, EBSCOhost, PubMed</li>
+                <li><strong>Library catalogs:</strong> Your institution's library system</li>
+                <li><strong>Google Scholar:</strong> Free academic search engine</li>
+                <li><strong>Government websites:</strong> .gov sites for official information</li>
+                <li><strong>Professional organizations:</strong> Industry-specific resources</li>
+            </ul>
+
+            <div class="tip">
+                <h4>Research Tip</h4>
+                <p>Start with your library's research guides for your subject area. Librarians curate the best resources for each discipline.</p>
+            </div>
+        </section>
+
+        <section id="core-elements">
+            <h2>MLA Core Elements</h2>
+            
+            <p>MLA 9th edition uses nine core elements to create citations. Not every source will have all elements, but include those that are available in this order:</p>
+
+            <div class="core-elements">
+                <div class="element-card">
+                    <h4>1. Author</h4>
+                    <p>Person, group, or organization responsible for the work</p>
+                </div>
+                <div class="element-card">
+                    <h4>2. Title of Source</h4>
+                    <p>Full title of the work being cited</p>
+                </div>
+                <div class="element-card">
+                    <h4>3. Title of Container</h4>
+                    <p>Larger work that contains your source</p>
+                </div>
+                <div class="element-card">
+                    <h4>4. Contributors</h4>
+                    <p>Other people who helped create the work</p>
+                </div>
+                <div class="element-card">
+                    <h4>5. Version</h4>
+                    <p>Edition, director's cut, expanded version, etc.</p>
+                </div>
+                <div class="element-card">
+                    <h4>6. Number</h4>
+                    <p>Volume, issue, season, episode numbers</p>
+                </div>
+                <div class="element-card">
+                    <h4>7. Publisher</h4>
+                    <p>Organization that produced or distributed the source</p>
+                </div>
+                <div class="element-card">
+                    <h4>8. Publication Date</h4>
+                    <p>When the work was published or updated</p>
+                </div>
+                <div class="element-card">
+                    <h4>9. Location</h4>
+                    <p>Page numbers, URLs, DOIs, physical location</p>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>Template Format</h4>
+                <p class="citation-example">Author. "Title of Source." Title of Container, Contributors, Version, Number, Publisher, Publication Date, Location.</p>
+            </div>
+        </section>
+
+        <section id="in-text-citations">
+            <h2>In-Text Citations</h2>
+            
+            <p>In-text citations appear within your paper and direct readers to the full citation on your Works Cited page. They typically include the author's last name and page number.</p>
+
+            <h3>Basic Format</h3>
+            <div class="example">
+                <h4>Author-Page Format</h4>
+                <p>Climate change represents "the most significant threat to global stability" (Johnson 45).</p>
+                <p>OR</p>
+                <p>Johnson argues that climate change represents "the most significant threat to global stability" (45).</p>
+            </div>
+
+            <h3>Variations</h3>
+
+            <div class="example">
+                <h4>No Author</h4>
+                <p>The study reveals concerning trends ("Global Warming" 12).</p>
+            </div>
+
+            <div class="example">
+                <h4>Multiple Authors</h4>
+                <p>Recent research supports this conclusion (Smith and Jones 78).</p>
+                <p>For three or more authors: (Smith et al. 78)</p>
+            </div>
+
+            <div class="example">
+                <h4>No Page Numbers (Web Sources)</h4>
+                <p>Online education has transformed learning (Davis).</p>
+            </div>
+
+            <div class="example">
+                <h4>Indirect Source</h4>
+                <p>Einstein believed in the power of imagination (qtd. in Wilson 234).</p>
+            </div>
+
+            <div class="warning">
+                <h4>Avoid Plagiarism</h4>
+                <p>Every idea, quote, or paraphrase from another source must be cited, even if you put it in your own words.</p>
+            </div>
+        </section>
+
+        <section id="works-cited">
+            <h2>Works Cited Page</h2>
+            
+            <p>The Works Cited page lists all sources referenced in your paper. It appears on a separate page at the end of your document.</p>
+
+            <h3>Formatting Guidelines</h3>
+            <ul>
+                <li>Start on a new page</li>
+                <li>Center the title "Works Cited" at the top</li>
+                <li>Double-space throughout</li>
+                <li>Use hanging indent for each entry</li>
+                <li>Alphabetize by author's last name (or title if no author)</li>
+                <li>Use Times New Roman, 12-point font</li>
+            </ul>
+
+            <h3>Sample Entries</h3>
+
+            <div class="example">
+                <h4>Book</h4>
+                <p class="citation-example">Morrison, Toni. Beloved. Knopf, 1987.</p>
+            </div>
+
+            <div class="example">
+                <h4>Journal Article</h4>
+                <p class="citation-example">Chen, Michael. "Digital Privacy in the Modern Era." Technology Review, vol. 45, no. 3, 2023, pp. 12-28.</p>
+            </div>
+
+            <div class="example">
+                <h4>Website</h4>
+                <p class="citation-example">Williams, Sarah. "Climate Change Solutions." Environmental Action, 15 Mar. 2023, www.enviroaction.org/climate-solutions.</p>
+            </div>
+
+            <div class="example">
+                <h4>Newspaper Article</h4>
+                <p class="citation-example">Rodriguez, Maria. "Economic Recovery Shows Promise." The Washington Post, 20 Feb. 2023, p. A1.</p>
+            </div>
+        </section>
+
+        <section id="integrating-sources">
+            <h2>Integrating Sources Effectively</h2>
+            
+            <p>Good source integration weaves evidence seamlessly into your argument while maintaining your voice as the primary author.</p>
+
+            <h3>The Integration Formula</h3>
+            <ol>
+                <li><strong>Introduce:</strong> Set up the source with context</li>
+                <li><strong>Present:</strong> Quote, paraphrase, or summarize</li>
+                <li><strong>Explain:</strong> Analyze and connect to your argument</li>
+            </ol>
+
+            <h3>Signal Phrases</h3>
+            <p>Use signal phrases to introduce your sources and show their relationship to your argument:</p>
+
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <th>Purpose</th>
+                        <th>Signal Phrases</th>
+                    </tr>
+                    <tr>
+                        <td>Agreement</td>
+                        <td>agrees, confirms, supports, validates</td>
+                    </tr>
+                    <tr>
+                        <td>Disagreement</td>
+                        <td>contradicts, disputes, challenges, refutes</td>
+                    </tr>
+                    <tr>
+                        <td>Neutrality</td>
+                        <td>states, reports, observes, notes</td>
+                    </tr>
+                    <tr>
+                        <td>Emphasis</td>
+                        <td>emphasizes, stresses, highlights, underscores</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="example">
+                <h4>Effective Integration Example</h4>
+                <p>While some critics dismiss renewable energy as unrealistic, leading climate scientist Dr. Sarah Chen <strong>emphasizes</strong> that "solar and wind power have become economically competitive with fossil fuels in most markets" (Chen 45). This economic shift <strong>demonstrates</strong> that environmental and financial interests now align, making the transition to clean energy not just morally imperative but economically logical.</p>
+            </div>
+
+            <h3>Avoiding Drop Quotes</h3>
+            <div class="warning">
+                <h4>Poor Integration (Drop Quote)</h4>
+                <p>Climate change is a serious problem. "Global temperatures have risen by 1.2°C since pre-industrial times" (IPCC 23). This is concerning.</p>
+            </div>
+
+            <div class="example">
+                <h4>Better Integration</h4>
+                <p>The urgency of addressing climate change becomes clear when examining recent temperature data. According to the Intergovernmental Panel on Climate Change, "Global temperatures have risen by 1.2°C since pre-industrial times" (IPCC 23), a seemingly small increase that scientists warn represents a dangerous acceleration of warming trends.</p>
+            </div>
+        </section>
+
+        <section id="quoting">
+            <h2>Quoting Guidelines</h2>
+            
+            <p>Use quotes sparingly and strategically. Quote when the author's exact words are particularly powerful, precise, or when you need to analyze specific language.</p>
+
+            <h3>When to Quote</h3>
+            <ul>
+                <li>The language is particularly striking or memorable</li>
+                <li>You're analyzing the author's word choice or style</li>
+                <li>The author is a recognized authority</li>
+                <li>You need to preserve the exact meaning</li>
+            </ul>
+
+            <h3>Short Quotes (fewer than 4 lines)</h3>
+            <p>Integrate short quotes directly into your text using quotation marks.</p>
+
+            <div class="example">
+                <h4>Short Quote Example</h4>
+                <p>Maya Angelou reflects on resilience: "There is no greater agony than bearing an untold story inside you" (Angelou 127).</p>
+            </div>
+
+            <h3>Long Quotes (4+ lines)</h3>
+            <p>Format long quotes as block quotes: start on a new line, indent 1 inch from the left margin, double-space, and omit quotation marks.</p>
+
+            <div class="example">
+                <h4>Block Quote Example</h4>
+                <p>Martin Luther King Jr. eloquently describes the urgency of civil rights:</p>
+                <blockquote style="margin-left: 40px; margin-right: 0;">
+                    We have waited for more than 340 years for our constitutional and God-given rights. The nations of Asia and Africa are moving with jetlike speed toward gaining political independence, but we still creep at horse-and-buggy pace toward gaining a cup of coffee at a lunch counter. (King 289)
+                </blockquote>
+                <p>This metaphor powerfully illustrates the frustration felt by those fighting for equality.</p>
+            </div>
+
+            <h3>Modifying Quotes</h3>
+
+            <div class="example">
+                <h4>Adding Words [brackets]</h4>
+                <p>The researcher concluded that "[the] results clearly support the hypothesis" (Johnson 45).</p>
+            </div>
+
+            <div class="example">
+                <h4>Omitting Words ...ellipses</h4>
+                <p>Lincoln proclaimed that "government of the people ... shall not perish from the earth" (Lincoln 123).</p>
+            </div>
+
+            <div class="tip">
+                <h4>Quote Integration Tip</h4>
+                <p>Never end a paragraph with a quote. Always follow quotes with your own analysis or explanation of their significance.</p>
+            </div>
+        </section>
+
+        <section id="paraphrasing">
+            <h2>Paraphrasing and Summarizing</h2>
+            
+            <p>Paraphrasing and summarizing allow you to present others' ideas in your own words while maintaining your writing voice.</p>
+
+            <h3>Paraphrasing</h3>
+            <p>Paraphrasing restates a specific passage in your own words, typically about the same length as the original.</p>
+
+            <div class="example">
+                <h4>Original Text</h4>
+                <p>"The rapid advancement of artificial intelligence has created both unprecedented opportunities and significant ethical challenges for society."</p>
+                
+                <h4>Effective Paraphrase</h4>
+                <p>Society faces both remarkable possibilities and serious moral dilemmas as AI technology develops at an accelerated pace (Chen 78).</p>
+            </div>
+
+            <h3>Summarizing</h3>
+            <p>Summarizing condenses larger amounts of information into key points, focusing on main ideas rather than details.</p>
+
+            <div class="example">
+                <h4>Summary Example</h4>
+                <p>In her comprehensive study of remote work trends, Martinez (2023) found that companies implementing flexible work policies saw increased employee satisfaction, reduced overhead costs, and improved talent retention, though some struggled with maintaining team cohesion and company culture.</p>
+            </div>
+
+            <h3>Paraphrasing Tips</h3>
+            <ul>
+                <li>Read the original multiple times to understand the meaning</li>
+                <li>Put the original away and write in your own words</li>
+                <li>Change both vocabulary and sentence structure</li>
+                <li>Check that you've maintained the original meaning</li>
+                <li>Always cite the source, even when paraphrasing</li>
+            </ul>
+
+            <div class="warning">
+                <h4>Avoid Patchwork Paraphrasing</h4>
+                <p>Don't just substitute synonyms. Completely restructure the sentence and express the idea in your natural writing voice.</p>
+            </div>
+        </section>
+
+        <section id="common-sources">
+            <h2>Common Source Types</h2>
+            
+            <p>Here are citation formats for the most commonly used sources in academic writing:</p>
+
+            <h3>Books</h3>
+            <div class="example">
+                <h4>Single Author</h4>
+                <p class="citation-example">Gladwell, Malcolm. Outliers: The Story of Success. Little, Brown, 2008.</p>
+                
+                <h4>Multiple Authors</h4>
+                <p class="citation-example">Gilbert, Sandra M., and Susan Gubar. The Madwoman in the Attic. Yale University Press, 1979.</p>
+                
+                <h4>Edited Book</h4>
+                <p class="citation-example">Ramazani, Jahan, editor. The Norton Anthology of Modern and Contemporary Poetry. 3rd ed., Norton, 2003.</p>
+            </div>
+
+            <h3>Journal Articles</h3>
+            <div class="example">
+                <h4>Print Journal</h4>
+                <p class="citation-example">Hartley, John. "The Evolution of Digital Media." Media Studies Quarterly, vol. 34, no. 2, 2023, pp. 45-62.</p>
+                
+                <h4>Online Journal</h4>
+                <p class="citation-example">Thompson, Lisa. "Social Media and Mental Health." Psychology Today, vol. 28, no. 4, 2023, pp. 12-25, doi:10.1037/pst0000123.</p>
+            </div>
+
+            <h3>Websites</h3>
+            <div class="example">
+                <h4>Web Page</h4>
+                <p class="citation-example">National Institute of Health. "Understanding Depression." NIH, 10 Jan. 2023, www.nih.gov/depression-guide.</p>
+                
+                <h4>Online Newspaper</h4>
+                <p class="citation-example">Baker, James. "Economic Trends in 2023." The New York Times, 15 Feb. 2023, www.nytimes.com/2023/02/15/business/economic-trends.html.</p>
+            </div>
+
+            <h3>Other Sources</h3>
+            <div class="example">
+                <h4>Film/Documentary</h4>
+                <p class="citation-example">An Inconvenient Truth. Directed by Davis Guggenheim, Paramount Pictures, 2006.</p>
+                
+                <h4>Interview</h4>
+                <p class="citation-example">Smith, Jane. Personal interview. 5 Mar. 2023.</p>
+                
+                <h4>Government Document</h4>
+                <p class="citation-example">United States, Department of Education. "Student Achievement Report." GPO, 2023.</p>
+            </div>
+
+            <div class="tip">
+                <h4>Citation Help</h4>
+                <p>When in doubt about citation format, consult the MLA Handbook (9th edition) or reputable online resources like the Purdue OWL (Online Writing Lab).</p>
+            </div>
+        </section>
+    </main>
+
+    <a href="#main-content" class="back-to-top" aria-label="Back to top">↑ Top</a>
+
+    <footer style="text-align: center; margin-top: 40px; padding: 20px; color: #6b7280; border-top: 1px solid #e5e7eb;">
+        <p>This guide follows MLA 9th edition guidelines. Always consult the official MLA Handbook for complete information.</p>
+    </footer>
+</body>
+</html>
