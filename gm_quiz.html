@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Glass Menagerie Quiz - Modernism and Scene I</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4a5568, #2d3748);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .quiz-content {
+            padding: 30px;
+        }
+
+        .question {
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .question-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .options {
+            display: grid;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .option {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            background: #edf2f7;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .option.correct {
+            border-color: #38a169;
+            background: #f0fff4;
+            color: #2f855a;
+        }
+
+        .option.incorrect {
+            border-color: #e53e3e;
+            background: #fffafa;
+            color: #c53030;
+        }
+
+        .short-answer {
+            margin-top: 15px;
+        }
+
+        .short-answer textarea {
+            width: 100%;
+            min-height: 80px;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: Georgia, serif;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .short-answer textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .submit-section {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+        }
+
+        .results {
+            background: #edf2f7;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        .score {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .score.excellent { color: #38a169; }
+        .score.good { color: #3182ce; }
+        .score.needs-improvement { color: #d69e2e; }
+        .score.poor { color: #e53e3e; }
+
+        .explanation {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            display: none;
+        }
+
+        .explanation.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .quiz-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>The Glass Menagerie Quiz</h1>
+            <p>Test your understanding of Tennessee Williams' modernist techniques and Scene I</p>
+        </div>
+
+        <div class="quiz-content">
+            <form id="quizForm">
+                <!-- Question 1 -->
+                <div class="question">
+                    <h3><span class="question-number">1</span>According to the notes, Tennessee Williams was writing during a shift from which literary movement to modernism?</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q1" value="a">
+                            Romanticism
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="b">
+                            Realism
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="c">
+                            Naturalism
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="d">
+                            Transcendentalism
+                        </label>
+                    </div>
+                    <div class="explanation">
+                        <strong>Correct Answer:</strong> Realism. The notes specifically state that Williams was writing during "a shift from the realism movement to modernism."
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question">
+                    <h3><span class="question-number">2</span>Which of the following is NOT mentioned as a tenant of modernism in the notes?</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q2" value="a">
+                            Use of stream of consciousness
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="b">
+                            Non-linear time with flashbacks
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="c">
+                            Focus on universal moral truths
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="d">
+                            Irony concerning social conventions
+                        </label>
+                    </div>
+                    <div class="explanation">
+                        <strong>Correct Answer:</strong> Focus on universal moral truths. Modernist writers actually focused on "the psychology of the individual rather than concern with universal truths."
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question">
+                    <h3><span class="question-number">3</span>What three theatrical conventions does Tennessee Williams use throughout the play according to his "Production Notes"?</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q3" value="a">
+                            Screen device, Music, Lighting
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="b">
+                            Monologue, Dialogue, Soliloquy
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="c">
+                            Flashbacks, Dreams, Reality
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="d">
+                            Symbolism, Metaphor, Allegory
+                        </label>
+                    </div>
+                    <div class="explanation">
+                        <strong>Correct Answer:</strong> Screen device, Music, Lighting. These are the three conventions specifically mentioned in Williams' Production Notes.
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="question">
+                    <h3><span class="question-number">4</span>Why does Williams provide Tom as the narrator of the play?</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q4" value="a">
+                            To provide objective historical facts
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="b">
+                            Because it's a "memory play" told from Tom's perspective
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="c">
+                            To represent Williams' own voice directly
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="d">
+                            To create dramatic irony
+                        </label>
+                    </div>
+                    <div class="explanation">
+                        <strong>Correct Answer:</strong> Because it's a "memory play" told from Tom's perspective. The notes emphasize that this is a memory play, meaning events are filtered through Tom's recollection rather than presented objectively.
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question">
+                    <h3><span class="question-number">5</span>What does the setting description "an alley in St. Louis, an apartment that is small" suggest about the Wingfield family's circumstances?</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q5" value="a">
+                            They are wealthy but prefer simple living
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="b">
+                            They live in cramped, modest conditions
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="c">
+                            They are temporarily staying in St. Louis
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="d">
+                            The setting is purely symbolic
+                        </label>
+                    </div>
+                    <div class="explanation">
+                        <strong>Correct Answer:</strong> They live in cramped, modest conditions. The description of a small apartment in an alley suggests economic constraints and limited living space.
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="question">
+                    <h3><span class="question-number">6</span>What does Laura's final line in Scene I, "Mother's afraid I'm going to be an old maid," reveal about the family's concerns?</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q6" value="a">
+                            Amanda is worried about Laura's education
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="b">
+                            Amanda fears Laura won't find a husband
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="c">
+                            Laura doesn't want to work
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="d">
+                            The family is planning to move
+                        </label>
+                    </div>
+                    <div class="explanation">
+                        <strong>Correct Answer:</strong> Amanda fears Laura won't find a husband. The term "old maid" refers to an unmarried woman, indicating Amanda's concern about Laura's marital prospects.
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="question">
+                    <h3><span class="question-number">7</span>According to the notes, modernist writers were influenced by which psychologist's work?</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q7" value="a">
+                            Carl Jung
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="b">
+                            B.F. Skinner
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="c">
+                            Sigmund Freud
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="d">
+                            William James
+                        </label>
+                    </div>
+                    <div class="explanation">
+                        <strong>Correct Answer:</strong> Sigmund Freud. The notes mention that writers were influenced by "the complexity of human relationships after Sigmund Freud publishes <em>The Interpretation of Dreams</em>."
+                    </div>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="question">
+                    <h3><span class="question-number">8</span>Short Answer: Based on the notes, explain what it means that <em>The Glass Menagerie</em> is a "memory play" and how this affects our understanding of the events presented.</h3>
+                    <div class="short-answer">
+                        <textarea name="q8" placeholder="Write your answer here (3-4 sentences minimum)..."></textarea>
+                    </div>
+                    <div class="explanation">
+                        <strong>Sample Answer:</strong> A "memory play" means that the events are not presented as objective reality but are filtered through Tom's recollections. This means the play is "not exactly as it happened but from the perspective of Tom," who voices the importance of the scenes. As memories, the events may be subjective, emotionally colored, or emphasize certain moments over others based on their significance to Tom. This technique aligns with modernist tendencies to focus on individual psychology rather than universal truths.
+                    </div>
+                </div>
+
+                <!-- Question 9 -->
+                <div class="question">
+                    <h3><span class="question-number">9</span>Short Answer: What is a "gentleman caller" in the context of the play, and why might this concept be important to understanding Amanda's character and concerns?</h3>
+                    <div class="short-answer">
+                        <textarea name="q9" placeholder="Write your answer here (3-4 sentences minimum)..."></textarea>
+                    </div>
+                    <div class="explanation">
+                        <strong>Sample Answer:</strong> A "gentleman caller" refers to a potential male suitor who would visit a young woman with romantic intentions, often as a precursor to courtship and marriage. This concept is important to understanding Amanda because it represents her hopes for Laura's future and her fears about Laura remaining unmarried. Amanda's concern about Laura becoming an "old maid" shows how important she considers it for Laura to attract a gentleman caller, reflecting the social expectations and pressures on women during this time period.
+                    </div>
+                </div>
+
+                <!-- Question 10 -->
+                <div class="question">
+                    <h3><span class="question-number">10</span>Short Answer: How did the historical context (post-WWI anxiety and Freud's influence) shape the way modernist writers like Tennessee Williams approached their craft?</h3>
+                    <div class="short-answer">
+                        <textarea name="q10" placeholder="Write your answer here (4-5 sentences minimum)..."></textarea>
+                    </div>
+                    <div class="explanation">
+                        <strong>Sample Answer:</strong> Post-WWI anxiety about foreign and domestic issues created uncertainty and disillusionment that led writers to question traditional narrative techniques and social conventions. Freud's work on the unconscious mind and dream interpretation encouraged writers to explore the complexity of human psychology and relationships. As a result, modernist writers like Williams "revolted against established writing techniques" and sought new perspectives that focused on "the psychology of the individual rather than concern with universal truths." This led to techniques like stream of consciousness, fragmented perception, and non-linear time that we see in Williams' work.
+                    </div>
+                </div>
+
+                <div class="submit-section">
+                    <button type="button" class="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+                </div>
+
+                <div class="results" id="results">
+                    <div class="score" id="scoreDisplay"></div>
+                    <p id="feedback"></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const answers = {
+            q1: 'b',
+            q2: 'c', 
+            q3: 'a',
+            q4: 'b',
+            q5: 'b',
+            q6: 'b',
+            q7: 'c'
+        };
+
+        function submitQuiz() {
+            let score = 0;
+            const totalMCQ = Object.keys(answers).length;
+            
+            // Check multiple choice questions
+            for (let question in answers) {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                const options = document.querySelectorAll(`input[name="${question}"]`).forEach(option => {
+                    const label = option.parentElement;
+                    label.classList.remove('correct', 'incorrect');
+                    
+                    if (option.value === answers[question]) {
+                        label.classList.add('correct');
+                        if (selected && selected.value === answers[question]) {
+                            score++;
+                        }
+                    } else if (selected && option.value === selected.value && selected.value !== answers[question]) {
+                        label.classList.add('incorrect');
+                    }
+                });
+            }
+
+            // Show explanations
+            document.querySelectorAll('.explanation').forEach(exp => {
+                exp.classList.add('show');
+            });
+
+            // Calculate and display results
+            const percentage = Math.round((score / totalMCQ) * 100);
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const feedback = document.getElementById('feedback');
+            const results = document.getElementById('results');
+            
+            scoreDisplay.textContent = `Score: ${score}/${totalMCQ} (${percentage}%)`;
+            
+            if (percentage >= 90) {
+                scoreDisplay.className = 'score excellent';
+                feedback.textContent = 'Excellent work! You have a strong understanding of the material.';
+            } else if (percentage >= 80) {
+                scoreDisplay.className = 'score good';
+                feedback.textContent = 'Good job! You understand most of the key concepts.';
+            } else if (percentage >= 70) {
+                scoreDisplay.className = 'score needs-improvement';
+                feedback.textContent = 'You\'re getting there! Review the material and focus on the areas you missed.';
+            } else {
+                scoreDisplay.className = 'score poor';
+                feedback.textContent = 'You may want to review the notes more carefully and retake the quiz.';
+            }
+            
+            results.classList.add('show');
+            results.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Add some interactivity to options
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const radio = this.querySelector('input[type="radio"]');
+                if (radio) {
+                    radio.checked = true;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
